@@ -1,0 +1,49 @@
+.container {
+    
+}
+.mainTitle {
+    font-size: 60px;
+}
+.selectTitle {
+    font-size: 20px;
+    margin: 20px 0px;
+}
+.catgories{
+    display: flex;
+    gap: 50px;
+}
+
+.catgory{
+    display: flex;
+    border: 5px solid #bbb;
+    border-radius: 5px;
+    height: 400px;
+    width: 300px;
+    position: relative;
+    background-size: cover !important;
+}
+
+.categoryTitle {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.catgory:nth-child(1) {
+    background: url('/illustration.png');
+}
+
+.catgory:nth-child(2) {
+    background: url('/websites.jpg');
+}
+
+.catgory:nth-child(3) {
+    background: url('/apps.jpg');
+}
+
+.catgory:hover .categoryTitle {
+    color: #53c28b;
+
+}

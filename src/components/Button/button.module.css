@@ -1,0 +1,10 @@
+.container{
+    padding: 20px;
+    border: none;
+    background-color: #53c28b;
+    color:white;
+    border-radius: 5px;
+    width: max-content;
+    font-size: 14px;
+    font-weight: bold;
+  }

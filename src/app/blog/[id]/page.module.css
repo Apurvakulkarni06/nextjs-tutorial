@@ -1,0 +1,49 @@
+.container {
+    margin-top: 50px;
+}
+
+.top{
+    display: flex;
+}
+.content{
+    margin-top: 50px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #999;
+    text-align: justify;
+}
+
+.textContainer{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+.title {
+    font-size: 40px;
+}
+
+.description {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.imgContainer{
+    flex: 1;
+    height: 300;
+    position: relative;
+}
+.img {
+    object-fit: cover;
+}
+.userinfo{
+    display: flex;
+    align-items: center;
+    gap:10px
+}
+
+.avatar{
+    object-fit: cover;
+    border-radius: 50%;
+}
