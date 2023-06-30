@@ -1,22 +1,66 @@
 "use client"
-import React, { useEffect } from 'react'
-import useSWR from 'swr'
-import supabase from '../../utils/supabase';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+
+import Router from "next/router";
+import React, { useEffect, useState } from 'react'
+
 
 const Dashboard = async() => {
-  // const fetcher = (...args) => fetch(...args).then(res => res.json())
-  // const {data, error, isLoading}  = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher)
-  // console.log("data:", data)
-  useEffect(async()=>{
-    const countries = await supabase.from('countries').select('name', 'id');
-    console.log("countries:", countries)
-  },[])
   
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // const router = useRouter()
+  const supabase = createClientComponentClient();
   
+  // useEffect(async()=>{
+  //   const session = await supabase.auth.getSession()
+  //     console.log("supabaseL",session )
+  // }, [])
+
+  const handleSignUp = async () =>{
+    await supabase.auth.signUp({
+      email, 
+      password,
+      options:{
+        emailRedirectTo: `${location.origin}/auth/callback`
+      }
+    })
+
+    Router.reload();
+  }
+
+  const handleSignIn = async () =>{
+    await supabase.auth.signInWithPassword({
+      email,
+      password
+    })
+
+    Router.reload();
+  }
+
+  const handleSignOut = async() =>{
+    await supabase.auth.signOut()
+    Router.reload();
+  }
+
+
   return (
     <div>
-      {/* <p>{isLoading ? "Loading" : "Dashboard"}</p> */}
-      Dashboard
+      <input name="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+
+      <input 
+        type="password"
+        name="password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password} 
+        />
+
+        <button onClick={handleSignUp}>Sign up</button>
+
+        <button onClick={handleSignIn}>Sign in</button>
+
+        <button onClick={handleSignOut}>Sign Out</button>
+      
     </div>
   )
 }
