@@ -4,7 +4,7 @@ import React from 'react'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 import styles from "./navbar.module.css"
 
-const Navbar = () => {
+const Navbar = ({user}) => {
     const links = [
         {
             id:1,
@@ -42,10 +42,12 @@ const Navbar = () => {
                 <Link className={styles.link} key={linkId} href={url}>{title}</Link>
             ))
         }
-        
+        {
+            user &&
         <button className={styles.logoutButton} onClick={() => console.log("Logout now!")}>
-            Logout
+            Logout  {user.email}!
         </button>
+}
         </div>
     </div>
   )
