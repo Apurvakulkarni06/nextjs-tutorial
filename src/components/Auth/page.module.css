@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    align-items: center;
+
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-items: center;
+    max-width: 1030px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.formContainer input {
+    /* padding: 10px 44px; */
+    padding: 20px;
+    font-size: 14px;
+    border: 2px solid #bbb;
+    background-color: transparent;
+}
+
+.accountText{
+    font-size: 14px;
+    font-weight: 300;
+    color: #bbb;
+}
+
+.signinText{
+    color: #53c28b;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
